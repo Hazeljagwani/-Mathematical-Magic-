@@ -1,0 +1,16 @@
+def romanToInt(romanInput):
+
+    roman = {'M': 1000, 'D': 500, 'c': 100, 'L': 50, 'X': 10}
+
+    resultInteger = 0
+
+    for i in range(0, len(romanInput) - 1):
+        if roman[romanInput[i]] < roman[romanInput[i + 1]]:
+            resultInteger -= roman[romanInput[i]]
+        else:
+            resultInteger += roman[romanInput[i]]
+    return resultInteger + roman[romanInput[-1]]
+
+roman = input("Input roman numeral : ")
+
+print("Integer equivalent : ", romanToInt(roman))
